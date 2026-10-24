@@ -27,7 +27,7 @@ namespace GroundworkJoystickHelper
         private static readonly Color Ink=Color.FromArgb(33,45,52), Green=Color.FromArgb(29,99,72);
         internal HelperForm()
         {
-            Text="Groundwork Joystick Helper 0.3";
+            Text="Groundwork Joystick Helper 0.4";
             Font=new Font("Segoe UI",10);ForeColor=Ink;BackColor=Color.FromArgb(245,247,246);
             ClientSize=new Size(940,740);MinimumSize=MaximumSize=new Size(956,779);
             StartPosition=FormStartPosition.CenterScreen;MaximizeBox=false;
@@ -239,3 +239,4 @@ namespace GroundworkJoystickHelper
         }
     }
 }
+

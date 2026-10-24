@@ -59,7 +59,7 @@ namespace GroundworkJoystickHelper
                 Throws(delegate{Compatibility.Patch(image);},"Reject modified or updated game build");
                 string oldApp=Environment.GetEnvironmentVariable("SteamAppId"),oldGame=Environment.GetEnvironmentVariable("SteamGameId");
                 string probe=Path.Combine(testRoot,"child-env.txt");
-                ProcessStartInfo info=Compatibility.StartInfo(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                ProcessStartInfo info=Compatibility.StartInfo(Environment.ProcessPath);
                 info.Arguments="--child-env \""+probe+"\"";info.CreateNoWindow=true;
                 using(Process p=Process.Start(info)){Assert(p.WaitForExit(10000)&&p.ExitCode==0,"Launch test child successfully");}
                 Assert(File.ReadAllText(probe)=="5306540|5306540","Child receives Steam application identity");
@@ -83,3 +83,4 @@ namespace GroundworkJoystickHelper
         }
     }
 }
+

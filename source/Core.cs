@@ -141,7 +141,7 @@ namespace GroundworkJoystickHelper
 
     public static class Compatibility
     {
-        public const string Version = "0.3.0";
+        public const string Version = "0.4.0";
         public const string Build = "26171350 / 0.1.1";
         public const string OriginalHash = "6B3703C22C8B0F67A2D35089A22E9B202921B1F466821D3DB16097D8A8EC5898";
         public const int PatchOffset = 0x04405BE4;
@@ -238,3 +238,4 @@ namespace GroundworkJoystickHelper
         }
     }
 }
+
