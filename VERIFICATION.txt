@@ -1,0 +1,71 @@
+GROUNDWORK JOYSTICK HELPER 0.3.0 - VERIFICATION
+Date: 2026-10-24
+
+AUTOMATED VALIDATION
+25 assertions passed on the development Windows 10 x64 machine:
+- Steam VDF parsing: escaped paths, quotes and malformed input.
+- Finding an installation in a second Steam-library path containing spaces.
+- Rejecting an install directory that escapes the Steam common directory.
+- Creating and verifying a separate copy, reusing an identical copy, and
+  refusing to overwrite unrelated existing bytes.
+- Rejecting unsupported and modified game images.
+- Retaining the exact game-image size and changing only the two intended
+  bytes in the controller-name classifier's final unsuccessful branch.
+- Preserving the original image in memory and the original installed file.
+- Giving a test child the correct Steam IDs without changing its parent
+  process or system environment.
+- Discovering both physical connected controllers and reading their native
+  axis/button state with valid normalized axis values.
+
+PHYSICAL HARDWARE CHECKED
+Thrustmaster SOL-R [R] Flightstick: 8 exposed axes, 44 buttons, 1 hat.
+Thrustmaster T.Flight HOTAS One: 8 exposed axes, 15 buttons, 1 hat.
+Both have the localized Windows Gaming Input name HID-spelbesturing.
+Friendly names are discovered from Windows; the helper does not recognize
+controllers from a fixed model or USB-ID allowlist.
+Other physical models, DirectInput-only devices and virtual devices have
+not been tested. Exposed axes can include unused axes on some controllers.
+
+APPLICATION AND LAUNCH CHECK
+The helper's rendered Windows form was inspected for layout and readability.
+The real application automatically found the installed game and both sticks.
+Its Start game action successfully created and verified game-joystickhelper.exe,
+made a settings backup, and started the separate copy with Steam identity.
+The running process was verified to use that copy, not the original game.exe.
+The original installed game SHA256 was rechecked after the launch and matched.
+
+IN-GAME INPUT CHECK
+The earlier localized-name workaround was confirmed by the user to detect
+both controllers and receive input from both in the game's setup menu.
+After launching the general version's separate copy, the user separately
+tested both sticks in Controls > Joystick > Set up sticks and confirmed
+that BOTH respond. This completes the in-game input check for these two
+physical controllers with this release.
+This result is not a claim that every other controller model works.
+
+AUDITED GAME IMAGE
+Steam build: 26171350 / game version 0.1.1
+File size: 191208960 bytes
+Original SHA256:
+6B3703C22C8B0F67A2D35089A22E9B202921B1F466821D3DB16097D8A8EC5898
+General compatible copy SHA256:
+791FEFC305AF00D4306960F1B5EC76ADB31D7F7F540F4FA5C18545F8596AA786
+Patch file offset: 0x04405BE4
+Original instruction bytes: 89 C3 (mov ebx,eax)
+Replacement bytes: B3 01 (mov bl,1)
+The game's raw controller-reading and cleanup code remain in place.
+The full original-image hash is required before this patch is applied.
+
+DISTRIBUTION CHECK
+The ZIP contains only the helper, source, build script, documentation and
+SHA256 checksums. It does not contain proprietary game executables, saves,
+settings, device-identity dumps, personal runtime logs or settings backups.
+The helper performs no network communication and installs no driver.
+
+LIMITS
+Windows 11 has not been physically tested. The implementation uses Windows
+Gaming Input and the installed 64-bit .NET Framework on Windows 10/11.
+Unrecognized or updated game builds are refused until separately reviewed.
+The player assigns left/right roles and axis/button bindings in the game.
+Steam Input, driver faults or a device without usable native Windows input
+can still prevent input. No universal USB translation is provided.

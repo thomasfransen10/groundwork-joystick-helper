@@ -1,0 +1,5 @@
+68b9994f0e17c5e5a454b8ea97b5a3e926dc5498e361c8a751faf7c0f3b88f3d  Groundwork-Joystick-Helper.exe
+bb1c50933ef8909e7badb7f362b2d5dd1c0f2aaf98f326eb02f411514c56de75  Groundwork-Joystick-Helper-0.3.0.zip
+
+Historical hashes for the original local test package only.
+Binary publication is on hold because of unresolved VirusTotal detections.

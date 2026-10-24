@@ -1,0 +1,9 @@
+*.exe
+*.pdb
+*.zip
+*.log
+settings*.ron
+backups/
+work/
+bin/
+obj/

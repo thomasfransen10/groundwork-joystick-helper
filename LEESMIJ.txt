@@ -1,0 +1,39 @@
+GROUNDWORK JOYSTICK HELPER 0.3.0
+
+Pak de ZIP uit en open Groundwork-Joystick-Helper.exe.
+De helper zoekt automatisch je Steam-installatie en aangesloten controllers.
+Klik op een controller om de assen en knoppen live te testen.
+
+Sla je spel op en sluit het af. Klik daarna op Start game.
+Ga in het spel naar Controls > Joystick > Set up sticks en wijs links/rechts
+toe. Stel de gewenste functies en asrichtingen in en centreer beide sticks.
+
+Deze algemene versie accepteert apparaatnamen ongeacht merk of taal. Hij
+gebruikt de invoer die Windows al van de controller ontvangt. De beperking
+op joysticknamen wordt opgeheven in een aparte kopie van het spelbestand.
+Er worden geen drivers, firmware of Windows-instellingen veranderd.
+
+Hij is bedoeld voor controllers die Windows Gaming Input beschikbaar stelt.
+Dat betekent niet dat ieder USB-apparaat of iedere joystick gegarandeerd
+werkt. Een apparaat zonder bruikbare Windows-invoer wordt niet gerepareerd.
+Andere aangesloten gamepads en sturen kunnen ook in het joystickmenu komen.
+De speler kiest daar de twee gewenste controllers.
+
+Ondersteunde spelversie: Steam-build 26171350 / versie 0.1.1.
+Andere Steam-bibliotheekschijven worden automatisch doorzocht.
+Een afwijkend of bijgewerkt spelbestand wordt geweigerd.
+
+Met deze algemene versie zijn de HOTAS One en SOL-R in het spel getest.
+De gebruiker heeft bevestigd dat beide sticks afzonderlijk reageren.
+Andere modellen zijn nog niet fysiek getest.
+
+Het originele game.exe en de bestaande versie-2-spelkopie blijven behouden.
+De algemene helper gebruikt een nieuwe kopie: game-joystickhelper.exe.
+Start voortaan via deze helper. Starten vanuit Steam gebruikt het origineel.
+
+Deel deze schone ZIP met anderen. Er zitten geen spelbestanden, persoonlijke
+instellingen, logbestanden of back-ups in. Iedere ontvanger gebruikt zijn
+eigen spelinstallatie. De broncode is meegeleverd.
+
+Zie README.txt voor de volledige Engelstalige uitleg, beperkingen en lokale
+opslaglocaties. VERIFICATION.txt vermeldt wat daadwerkelijk getest is.
