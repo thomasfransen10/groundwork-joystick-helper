@@ -1,0 +1,46 @@
+name: Build source for investigation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'source/**'
+      - '.github/workflows/build-investigation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compile:
+    runs-on: windows-2022
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - name: Compile published source without executing the program
+        shell: pwsh
+        run: |
+          & ./source/build.ps1
+          if ($LASTEXITCODE -ne 0) { throw 'Build failed' }
+          New-Item -ItemType Directory -Path investigation | Out-Null
+          Copy-Item -LiteralPath Groundwork-Joystick-Helper.exe -Destination investigation/
+          $binaryHash = (Get-FileHash -LiteralPath investigation/Groundwork-Joystick-Helper.exe -Algorithm SHA256).Hash
+          "$binaryHash  Groundwork-Joystick-Helper.exe" | Set-Content -LiteralPath investigation/SHA256.txt
+          @(
+            'INVESTIGATION ARTIFACT - NOT A RELEASE OR A SAFETY APPROVAL',
+            "Source commit: $env:GITHUB_SHA",
+            "Build run: https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID",
+            'Compiled on a fresh GitHub-hosted Windows runner without running the helper.',
+            'The original local 0.3.0 build has unresolved VirusTotal detections.',
+            'See the repository SECURITY.md. Do not disable antivirus or add exclusions.'
+          ) | Set-Content -LiteralPath investigation/READ-FIRST.txt
+          Write-Output "Compiled binary SHA256: $binaryHash"
+      - name: Store explicitly unreviewed investigation artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: investigation-build-not-a-release
+          path: investigation/
+          if-no-files-found: error
+          retention-days: 7
