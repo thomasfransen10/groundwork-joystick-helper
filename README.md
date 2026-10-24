@@ -8,6 +8,8 @@ The original locally built helper version 0.3.0 was submitted to VirusTotal on *
 
 [View the full VirusTotal report](https://www.virustotal.com/gui/file/68b9994f0e17c5e5a454b8ea97b5a3e926dc5498e361c8a751faf7c0f3b88f3d)
 
+**Update:** a fresh GitHub-hosted build was also scanned and received the same four detections (4/70, one engine timed out). A byte comparison found that both builds are identical except for their compilation timestamp and module GUID. See [INVESTIGATION.md](INVESTIGATION.md) for both scan reports, the public build log and comparison data. The release remains on hold.
+
 Source is published for inspection. Functional testing is not a security audit. This project is unsigned, has no independent security certification, and makes no promise that all controllers work. See [SECURITY.md](SECURITY.md) for the exact scan findings and review scope.
 
 ## What it does

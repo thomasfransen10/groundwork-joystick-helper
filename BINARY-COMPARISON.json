@@ -1,0 +1,23 @@
+{
+  "local_sha256": "68b9994f0e17c5e5a454b8ea97b5a3e926dc5498e361c8a751faf7c0f3b88f3d",
+  "ci_sha256": "f0d57cdf028327e0df124033c1184c2c0f2728fded44069dbebab13616c9360d",
+  "local_size": 36352,
+  "ci_size": 36352,
+  "differing_byte_count": 17,
+  "normalized_fields": [
+    {
+      "offset": 136,
+      "length": 4,
+      "meaning": "PE compilation timestamp"
+    },
+    {
+      "offset": 31832,
+      "length": 16,
+      "meaning": "single module GUID / MVID heap"
+    }
+  ],
+  "all_other_bytes_identical": true,
+  "normalized_sha256_local": "3ee3daa415910f2183e1f7518af505516ea997e4cf44bf533f8365f35b422801",
+  "normalized_sha256_ci": "3ee3daa415910f2183e1f7518af505516ea997e4cf44bf533f8365f35b422801",
+  "limits": "This comparison does not establish software safety or resolve antivirus detections. No executable was run."
+}
